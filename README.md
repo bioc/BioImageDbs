@@ -29,11 +29,17 @@ library(BioImageDbs)
 
 ```r
 eh <- ExperimentHub()
+
 qr <- query(eh, c("BioImageDbs", "EM_id0001"))
 
+#EM_id0001
 N <- 1
 qr[N]
+str(qr[N])
+
+#Data download
 ImgData <- qr[[N]]
+str(ImgData)
 ```
 
 2. Display the GIF animation.
