@@ -9,6 +9,8 @@ The original dataset is available in [Google Drive](https://drive.google.com/dri
 
 # [Data source (GoogleDrive)](https://drive.google.com/drive/folders/1pVCE1JukoY8U1VN4YZmVPFaGtPg80OY-?usp=sharing)
 
+# [Vignettes](https://kumes.github.io/BioImageDbs/vignettes/BioImageDbs.html)
+
 # Installation
 
 1. Start R.app
@@ -28,11 +30,18 @@ library(BioImageDbs)
 1. Load the image dataset.
 
 ```r
+eh <- ExperimentHub()
+
 qr <- query(eh, c("BioImageDbs", "EM_id0001"))
 
+#EM_id0001
 N <- 1
 qr[N]
+str(qr[N])
+
+#Data download
 ImgData <- qr[[N]]
+str(ImgData)
 ```
 
 2. Display the GIF animation.
