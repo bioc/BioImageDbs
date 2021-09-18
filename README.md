@@ -27,6 +27,14 @@ The original dataset is available in [Google Drive](https://drive.google.com/dri
 
 - [Providing Bioimage Dataset for ExperimentHub](https://kumes.github.io/BioImageDbs/vignettes/BioImageDbs.html)
 
+- [make-data_for_v01](https://kumes.github.io/BioImageDbs/inst/scripts/v01/make-data_for_v01.html)
+
+- [make-data_for_v02](https://kumes.github.io/BioImageDbs/inst/scripts/v02/make-data_for_v02.html)
+
+## Information
+
+- [Package Downloads Report](http://bioconductor.org/packages/stats/data-experiment/BioImageDbs/)
+
 ## Installation
 
 1. Start R.app
@@ -38,6 +46,19 @@ if (!requireNamespace("BiocManager", quietly = TRUE)){ install.packages("BiocMan
 BiocManager::install("BioImageDbs")
 
 library(ExperimentHub)
+library(BioImageDbs)
+```
+
+(Optional) 
+
+Install from the GitGub.
+
+```r
+#Install
+install.packages( "devtools" , repos="http://cran.r-project.org")
+devtools::install_github( "kumeS/BioImageDbs", force = TRUE )
+
+#Load
 library(BioImageDbs)
 ```
 
@@ -58,6 +79,8 @@ str(qr[N])
 
 #Data download
 ImgData <- qr[[N]]
+
+#Show info
 str(ImgData)
 ```
 
@@ -67,8 +90,11 @@ str(ImgData)
 library(magick)
 qr <- query(eh, c("BioImageDbs", "EM_id0001"))
 
+#Show info
 N <- 2
 qr[N]
+
+#View
 magick::image_read(qr[[N]])
 ```
 
@@ -77,7 +103,7 @@ Copyright (c) 2021 Satoshi Kume released under the [Artistic License 2.0](http:/
 
 ## Cite
 
-If any scientific publications derive from this project, you must cite:
+If any scientific publications derive from this project, you should cite:
 
 Kume S, Nishida K (2021). BioImageDbs: Bio- and biomedical imaging dataset for machine learning and deep learning (for ExperimentHub). Bioconductor: ExperimentHub package.
 
