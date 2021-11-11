@@ -14,7 +14,6 @@ loaded to Keras/tensorflow in R.
 - 2D/3D cellular images and their supervised labels for deep learning in R
 - Sharing the bioimage dataset with 4D/5D array (tensor) structures via Bioconductor
 
-
   - Future plan
     - Sharing the trained deep learning models in R
     - Integrated usage with rMiW 
@@ -27,11 +26,15 @@ The original dataset is available in [Google Drive](https://drive.google.com/dri
 
 - [Providing Bioimage Dataset for ExperimentHub](https://kumes.github.io/BioImageDbs/vignettes/BioImageDbs.html)
 
+- [The BioImageBbs Datasets](https://kumes.github.io/BioImageDbs/vignettes/BioImageBbs_Datasets.html)
+
 - [make-data_for_v01](https://kumes.github.io/BioImageDbs/inst/scripts/v01/make-data_for_v01.html)
 
 - [make-data_for_v02](https://kumes.github.io/BioImageDbs/inst/scripts/v02/make-data_for_v02.html)
 
 ## Information
+
+- [Bioconductor / BioImageDbs](https://bioconductor.org/packages/release/data/experiment/html/BioImageDbs.html)
 
 - [Package Downloads Report](http://bioconductor.org/packages/stats/data-experiment/BioImageDbs/)
 
@@ -43,23 +46,12 @@ The original dataset is available in [Google Drive](https://drive.google.com/dri
 
 ```r
 if (!requireNamespace("BiocManager", quietly = TRUE)){ install.packages("BiocManager") }
-BiocManager::install("BioImageDbs")
-
+BiocManager::install(c("ExperimentHub", "BioImageDbs"))
 library(ExperimentHub)
 library(BioImageDbs)
-```
 
-(Optional) 
-
-Install from the GitGub.
-
-```r
-#Install
-install.packages( "devtools" , repos="http://cran.r-project.org")
-devtools::install_github( "kumeS/BioImageDbs", force = TRUE )
-
-#Load
-library(BioImageDbs)
+install.packages("magick")
+library(magick)
 ```
 
 ## Simple usage
@@ -87,7 +79,6 @@ str(ImgData)
 2. Display the GIF animation.
 
 ```r
-library(magick)
 qr <- query(eh, c("BioImageDbs", "EM_id0001"))
 
 #Show info
@@ -99,6 +90,7 @@ magick::image_read(qr[[N]])
 ```
 
 ## License
+
 Copyright (c) 2021 Satoshi Kume released under the [Artistic License 2.0](http://www.perlfoundation.org/artistic_license_2_0).
 
 ## Cite
@@ -114,7 +106,7 @@ Kume S, Nishida K (2021). BioImageDbs: Bio- and biomedical imaging dataset for m
   author={Kume, Satoshi and Nishida, Kozo},
   year={2021},
   publisher={Bioconductor},
-  note={Experiment Packages - Release 3.13},
+  note={Experiment Packages},
   howpublished={\url{https://bioconductor.org/packages/release/data/experiment/html/BioImageDbs.html}},
 }
 ```
@@ -122,4 +114,5 @@ Kume S, Nishida K (2021). BioImageDbs: Bio- and biomedical imaging dataset for m
 ## Authors
 - Satoshi Kume
 - Kozo Nishida
+
 
